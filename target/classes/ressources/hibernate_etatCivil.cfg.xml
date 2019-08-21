@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory >
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">XCLERCncn#12345</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/etatcivildb</property>
+  <property name="hibernate.connection.username">clerc17</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="connection.pool_size">1</property>
+  <property name="hibernate.show_sql">true</property>
+  
+    <property name="hibernate.connection.CharSet">UTF-8</property>
+  <property name="hibernate.connection.characterEncoding">UTF-8</property>
+  <property name="hibernate.connection.useUnicode">true</property>
+  
+<!--   <property name="hibernate.format_sql">true</property> -->
+<!--   <property name="hibernate.hbm2ddl.auto">update</property> -->
+
+  <mapping class="cg.ncn.entities.etatcivil.Act"/>
+  <mapping class="cg.ncn.entities.etatcivil.Annex"/>
+  <mapping class="cg.ncn.entities.etatcivil.Attachment"/>
+  <mapping class="cg.ncn.entities.etatcivil.Attestationdiverses"/>
+  <mapping class="cg.ncn.entities.etatcivil.Birth"/>
+  <mapping class="cg.ncn.entities.etatcivil.City"/>
+  <mapping class="cg.ncn.entities.etatcivil.Compteuract"/>
+  <mapping class="cg.ncn.entities.etatcivil.Controleact"/>
+  <mapping class="cg.ncn.entities.etatcivil.Death"/>
+  <mapping class="cg.ncn.entities.etatcivil.Declaration"/>
+  <mapping class="cg.ncn.entities.etatcivil.District"/>
+  <mapping class="cg.ncn.entities.etatcivil.Document"/>
+  <mapping class="cg.ncn.entities.etatcivil.Edition"/>
+  <mapping class="cg.ncn.entities.etatcivil.Jobcategory"/>
+  <mapping class="cg.ncn.entities.etatcivil.Judgmentdeclaration"/>
+  <mapping class="cg.ncn.entities.etatcivil.Local"/>
+  <mapping class="cg.ncn.entities.etatcivil.Mention"/>
+  <mapping class="cg.ncn.entities.etatcivil.Mentiontype"/>
+  <mapping class="cg.ncn.entities.etatcivil.Modifiedproperty"/>
+  <mapping class="cg.ncn.entities.etatcivil.Objectdb"/>
+  <mapping class="cg.ncn.entities.etatcivil.Objectdbuser"/>
+  <mapping class="cg.ncn.entities.etatcivil.ObjectdbuserId"/>
+  <mapping class="cg.ncn.entities.etatcivil.Person"/>
+  <mapping class="cg.ncn.entities.etatcivil.Persondeclaration"/>
+  <mapping class="cg.ncn.entities.etatcivil.Print"/>
+  <mapping class="cg.ncn.entities.etatcivil.Profile"/>
+  <mapping class="cg.ncn.entities.etatcivil.Register"/>
+  <mapping class="cg.ncn.entities.etatcivil.Registerclass"/>
+  <mapping class="cg.ncn.entities.etatcivil.Registernumbering"/>
+  <mapping class="cg.ncn.entities.etatcivil.Registertype"/>
+  <mapping class="cg.ncn.entities.etatcivil.Resident"/>
+  <mapping class="cg.ncn.entities.etatcivil.Transcription"/>
+  <mapping class="cg.ncn.entities.etatcivil.Translateexecutive"/>
+  <mapping class="cg.ncn.entities.etatcivil.Translatesigned"/>
+  <mapping class="cg.ncn.entities.etatcivil.User"/>
+  <mapping class="cg.ncn.entities.etatcivil.Vdivorcess"/>
+  <mapping class="cg.ncn.entities.etatcivil.VdivorcessId"/>
+ </session-factory>
+</hibernate-configuration>

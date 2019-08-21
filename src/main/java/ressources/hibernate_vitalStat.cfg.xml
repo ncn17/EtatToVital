@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory >
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.password">XCLERCncn#12345</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/vitalstatistics</property>
+  <property name="hibernate.connection.username">clerc17</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="connection.pool_size">1</property>
+  <property name="hibernate.show_sql">true</property>
+  
+  <property name="hibernate.connection.CharSet">UTF-8</property>
+  <property name="hibernate.connection.characterEncoding">UTF-8</property>
+  <property name="hibernate.connection.useUnicode">true</property>
+  
+  <!--   <property name="hibernate.format_sql">true</property> -->
+<!--   <property name="hibernate.hbm2ddl.auto">update</property>  -->
+  <mapping class="cg.ncn.entities.vital.ChthibiAnnex"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiAttachment"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiBirth"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiBirthHistory"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiBirthResident"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiConfig"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiDeath"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiDeathHistory"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiDeathIrevisionunderrule"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiDistrict"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiDocument"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiDocumentRequest"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIabbottconjugal"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIacquiremoroccannationality"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIadd"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIaddwife"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIadopted"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIaltgarr"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIaudit"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIbirthRevision"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIchangeparentname"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIchosen"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathacquiremoroccannationality"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathforeignfirstnamechange"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathlastnamereplacement"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathother"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathreformlatinname"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathRevision"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathsinbirthplace"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdeathsinnonbirthplace"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIdivorce"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIentername"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIforeignfirstnamechange"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIirreversibility"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIlastnamereplacement"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiImarriage"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIndicationtype"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIother"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIprovelastname"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIreformlatinname"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiIrevisionunderrule"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiPrints"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiProfile"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiRegister"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiRegistertype"/>
+  <mapping class="cg.ncn.entities.vital.ChthibiUser"/>
+ </session-factory>
+</hibernate-configuration>
