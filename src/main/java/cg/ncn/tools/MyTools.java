@@ -9,14 +9,17 @@ import cg.ncn.entities.vital.ChthibiUser;
 
 public class MyTools {
 
-    private static ChthibiAnnex    annex       = getChthibiAnnex();
-    private static ChthibiDistrict district    = getChthibiDistrict();
-    private static ChthibiUser     user        = getChthibiUser();
-    public static final int        IdANNEX     = 14;
-    public static final int        IdDISTRICT  = 2;
-    public static final int        IdADMIN     = 1;
-    public static final int        IdSTATEMENT = 1;
-    public static final int        VALID       = 0;
+    private static ChthibiAnnex    annex         = getChthibiAnnex();
+    private static ChthibiDistrict district      = getChthibiDistrict();
+    private static ChthibiUser     user          = getChthibiUser();
+    public static final int        IdANNEX       = 14;
+    public static final int        IdDISTRICT    = 2;
+    public static final int        IdADMIN       = 1;
+    public static final int        IdSTATEMENT   = 1;
+    public static final int        VALID         = 0;
+    public static final int        MENTIONIDTYPE = 15;
+    public static final int        IOTHER        = 0;
+    public static final int        IDEATH        = 1;
 
     public static ChthibiAnnex getChthibiAnnex() {
         if ( annex == null ) {
@@ -39,8 +42,8 @@ public class MyTools {
         return user;
     }
 
-    public static Date getPersonDate( ) {
-        return  new Date();
+    public static Date getPersonDate() {
+        return new Date();
     }
 
 }

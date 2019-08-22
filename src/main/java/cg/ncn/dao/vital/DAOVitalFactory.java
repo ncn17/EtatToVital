@@ -9,21 +9,29 @@ public class DAOVitalFactory {
     public static ChthibiRegisterDAO getChthibiRegisterDAO() {
         return new ChthibiRegisterDAO();
     }
-    
+
     public static ChthibiAnnexDAO getChthibiAnnexDAO() {
         return new ChthibiAnnexDAO();
     }
-    
+
     public static ChthibiDistrictDAO getChthibiDistrictDAO() {
         return new ChthibiDistrictDAO();
     }
-    
+
     public static ChthibiBirthDAO getChthibiBirthDAO() {
         return new ChthibiBirthDAO();
     }
-    
+
     public static ChthibiDeathDAO getChthibiDeathDAO() {
         return new ChthibiDeathDAO();
+    }
+
+    public static ChthibiIotherDAO getChthibiIotherDAO() {
+        return new ChthibiIotherDAO();
+    }
+
+    public static ChthibiIdeathotherDAO getChthibiIdeathotherDAO() {
+        return new ChthibiIdeathotherDAO();
     }
 
 }
