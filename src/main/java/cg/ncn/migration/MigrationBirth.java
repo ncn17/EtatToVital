@@ -79,7 +79,7 @@ public class MigrationBirth {
         birth.setLastnamemarginfr( act.getLastNameMarginAr() );
         birth.setBirthcityarabic( act.getCityActAr() );
         birth.setBirthcityfrench( act.getCityActFr() );
-        birth.setNumber( act.getNumber() );
+        birth.setNumber( register.getNumber() );
         birth.setIsproblem( act.getIsProblem() );
         birth.setComment( act.getComment() );
         birth.setFirstnamearabic( person.getFirstNameAr() );
@@ -107,7 +107,7 @@ public class MigrationBirth {
         birth.setRank( person.getRank() );
         birth.setReghour( edt.getHour() );
         birth.setRegminute( edt.getMinute() );
-        birth.setDate( MyTools.getPersonDate(  ) );
+        birth.setDate( MyTools.getPersonDate() );
 
         /* view */
         if ( transcription != null ) {

@@ -4,9 +4,9 @@
 <hibernate-configuration>
  <session-factory >
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-  <property name="hibernate.connection.password">password</property>
+  <property name="hibernate.connection.password">XCLERCncn#12345</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/etatcivildb</property>
-  <property name="hibernate.connection.username">user</property>
+  <property name="hibernate.connection.username">atir17</property>
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <property name="connection.pool_size">1</property>
   <property name="hibernate.show_sql">true</property>
