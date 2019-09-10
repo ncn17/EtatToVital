@@ -12,7 +12,7 @@ public class Main {
     public static void main( String[] args ) {
 
         /*
-         * Demmarage de toutes les connections Mode singleton (fast)
+         * Demarrage de toutes les connections Mode singleton (fast)
          * InitAllConnections.start()
          */
 

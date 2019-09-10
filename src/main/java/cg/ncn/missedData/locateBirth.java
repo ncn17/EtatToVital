@@ -13,8 +13,6 @@ import cg.ncn.tools.HbVitalStatUtils;
 
 public class locateBirth {
 
-    private static final int IDTYPE = 1;
-
     public static List<ChthibiBirth> findBirth( int annee ) {
         String query = "\n" +
                 " select b FROM cg.ncn.entities.vital.ChthibiBirth as b , cg.ncn.entities.vital.ChthibiRegister as r where r.number = b.number and r.year = :annee and r.idtype = :idtype order by b.number";
@@ -26,7 +24,7 @@ public class locateBirth {
             tx = session.beginTransaction();
             Query q = session.createQuery( query );
             q.setParameter( "annee", annee );
-            q.setParameter( "idtype", IDTYPE );
+            q.setParameter( "idtype", DataStorage.IDTYPEBIRTH );
             births = q.list();
             tx.commit();
         } catch ( Exception e ) {
@@ -36,16 +34,30 @@ public class locateBirth {
         return births;
     }
 
-    public static void findError() {
-        int tabTYear[] = { 2000, 2001, 2019 };
+    public static Long countBirth() {
+        Session session = HbVitalStatUtils.getSessionFactory().openSession();
+        Long total = 0l;
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createQuery( "SELECT count(distinct b.id) FROM cg.ncn.entities.vital.ChthibiBirth b" );
+            total = (Long) q.uniqueResult();
+            tx.commit();
+        } catch ( Exception e ) {
+            tx.rollback();
+        }
+        session.close();
+        return total;
+    }
 
+    public static void findError() {
         // get data by year
 
-        for ( int year : tabTYear ) {
+        for ( int year = 1900; year < 2050; year++ ) {
             List<ChthibiBirth> births = locateBirth.findBirth( year );
 
             // traitement list
-            int compt = 0, found = 0;
+            int compt = 0, found = 0, miss = 0;
             String texte = null;
 
             if ( births.isEmpty() == false ) {
@@ -59,8 +71,9 @@ public class locateBirth {
                             texte = "Erreur données manquantes entre : number => " + births.get( i ).getNumber()
                                     + " et number => "
                                     + births.get( k ).getNumber() + " Année : "
-                                    + births.get( k ).getYeargeorgian();
+                                    + year;
                             texte += "\n";
+                            miss += compt;
                         }
                     }
                 }
@@ -68,17 +81,19 @@ public class locateBirth {
             // memorisation
             if ( found > 0 ) {
                 found = 0;
-                saveInFile( texte, year );
+                saveInFile( texte, year, miss );
             }
         }
     }
 
-    private static void saveInFile( String txt, int year ) {
+    private static void saveInFile( String txt, int year, int miss ) {
         FileWriter fw = null;
         String name = "missedBirth" + year + ".txt";
         try {
             fw = new FileWriter( "Report/" + name );
-            fw.write( "*******Rapport d'erreur : Table ChthibiBirth du : " + new Date() + " *******\n\n" );
+            fw.write( "*******Rapport : Table ChthibiBirth du : " + new Date() + " *******\n\n" );
+            fw.write( "Nombres Total d'actes de naissances :  " + countBirth() + '\n' );
+            fw.write( "Nombres Total d'actes de naissances manquant :  " + miss + '\n' );
             fw.write( txt );
             fw.close();
         } catch ( Exception e ) {

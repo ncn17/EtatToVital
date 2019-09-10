@@ -1,0 +1,25 @@
+Delete from vitalstatistics.chthibi_death where ID <  12 and id > 29
+and id not in (select * from vitalstatistics.chthibi_ideathacquiremoroccannationality )
+and id not in (select * from vitalstatistics.chthibi_ideathforeignfirstnamechange )
+and id not in (select * from vitalstatistics.chthibi_ideathforeignfirstnamechange )
+and id not in (select * from vitalstatistics.chthibi_ideathother )
+and id not in (select * from vitalstatistics.chthibi_ideathreformlatinname )
+and id not in (select * from vitalstatistics.chthibi_ideath_revision )
+and id not in (select * from vitalstatistics.chthibi_ideathsinbirthplace )
+and id not in (select * from vitalstatistics.chthibi_ideathsinnonbirthplace )
+;
+
+Delete from vitalstatistics.chthibi_birth where ID <  12 and id > 29
+and id not in (select * from vitalstatistics.chthibi_ibirth_revision )
+and id not in (select * from vitalstatistics.chthibi_irevisionunderrule )
+and id not in (select * from vitalstatistics.chthibi_iabbottconjugal )
+and id not in (select * from vitalstatistics.chthibi_iacquiremoroccannationality )
+and id not in (select * from vitalstatistics.chthibi_iaddwife )
+and id not in (select * from vitalstatistics.chthibi_iadopted )
+and id not in (select * from vitalstatistics.chthibi_ialtgarr )
+and id not in (select * from vitalstatistics.chthibi_iaudit )
+and id not in (select * from vitalstatistics.chthibi_ichangeparentname )
+and id not in (select * from vitalstatistics.chthibi_ichosen )
+and id not in (select * from vitalstatistics.chthibi_i )
+and id not in (select * from vitalstatistics.chthibi_i )
+and id not in (select * from vitalstatistics.chthibi_i )

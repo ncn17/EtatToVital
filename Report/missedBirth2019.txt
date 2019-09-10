@@ -1,0 +1,5 @@
+*******Rapport : Table ChthibiBirth du : Tue Sep 10 11:05:10 WEST 2019 *******
+
+Nombres Total d'actes de naissances :  3
+Nombres Total d'actes de naissances manquant :  24
+Erreur données manquantes entre : number => 17 et number => 41 Année : 4

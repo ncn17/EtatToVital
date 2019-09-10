@@ -12,7 +12,6 @@ import cg.ncn.entities.vital.ChthibiDeath;
 import cg.ncn.tools.HbVitalStatUtils;
 
 public class locateDeath {
-    private static final int IDTYPE = 2;
 
     public static List<ChthibiDeath> findDeath( int annee ) {
         String query = "\n" +
@@ -25,7 +24,7 @@ public class locateDeath {
             tx = session.beginTransaction();
             Query q = session.createQuery( query );
             q.setParameter( "annee", annee );
-            q.setParameter( "idtype", IDTYPE );
+            q.setParameter( "idtype", DataStorage.IDTYPEDEATH );
             deaths = q.list();
             tx.commit();
         } catch ( Exception e ) {
@@ -36,15 +35,13 @@ public class locateDeath {
     }
 
     public static void findError() {
-        int tabTYear[] = { 2000, 2001, 2019 };
-
         // get data by year
 
-        for ( int year : tabTYear ) {
+        for ( int year = 1900; year < 2050; year++ ) {
             List<ChthibiDeath> deaths = locateDeath.findDeath( year );
 
             // traitement list
-            int compt = 0, found = 0;
+            int compt = 0, found = 0, miss = 0;
             String texte = null;
 
             if ( deaths.isEmpty() == false ) {
@@ -58,8 +55,9 @@ public class locateDeath {
                             texte = "Erreur données manquantes entre : number => " + deaths.get( i ).getNumber()
                                     + " et number => "
                                     + deaths.get( k ).getNumber() + " Année : "
-                                    + deaths.get( k ).getYeargeorgian();
+                                    + year;
                             texte += "\n";
+                            miss += compt;
                         }
                     }
                 }
@@ -67,21 +65,40 @@ public class locateDeath {
             // memorisation
             if ( found > 0 ) {
                 found = 0;
-                saveInFile( texte, year );
+                saveInFile( texte, year, miss );
             }
         }
     }
 
-    private static void saveInFile( String txt, int year ) {
+    public static Long countDeath() {
+        Session session = HbVitalStatUtils.getSessionFactory().openSession();
+        Long total = 0l;
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createQuery( "SELECT count(distinct d.id) FROM cg.ncn.entities.vital.ChthibiDeath d" );
+            total = (Long) q.uniqueResult();
+            tx.commit();
+        } catch ( Exception e ) {
+            tx.rollback();
+        }
+        session.close();
+        return total;
+    }
+
+    private static void saveInFile( String txt, int year, int miss ) {
         FileWriter fw = null;
-        String name = "missedDeath" + year + ".txt";
+        String name = "missedBirth" + year + ".txt";
         try {
             fw = new FileWriter( "Report/" + name );
-            fw.write( "*******Rapport d'erreur : Table ChthibiDeath du : " + new Date() + " *******\n\n" );
+            fw.write( "*******Rapport : Table ChthibiDeath du : " + new Date() + " *******\n\n" );
+            fw.write( "Nombres Total d'actes death  :  " + countDeath() + '\n' );
+            fw.write( "Nombres Total d'actes death manquant :  " + miss + '\n' );
             fw.write( txt );
             fw.close();
         } catch ( Exception e ) {
             System.err.println( e.getMessage() );
         }
     }
+
 }

@@ -79,7 +79,7 @@ public class MigrationBirth {
         birth.setLastnamemarginfr( act.getLastNameMarginAr() );
         birth.setBirthcityarabic( act.getCityActAr() );
         birth.setBirthcityfrench( act.getCityActFr() );
-        birth.setNumber( register.getNumber() );
+        birth.setNumber( act.getNumber() );
         birth.setIsproblem( act.getIsProblem() );
         birth.setComment( act.getComment() );
         birth.setFirstnamearabic( person.getFirstNameAr() );

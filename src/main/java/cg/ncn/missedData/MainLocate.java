@@ -4,7 +4,8 @@ public class MainLocate {
 
     public static void main( String[] args ) {
 
-        locateDeath.findError();
+        locateBirth.findError();
+
     }
 
 }
